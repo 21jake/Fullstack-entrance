@@ -48,6 +48,11 @@
     font-size: 40px;
     display: none;
 }
+.answer-again {
+    cursor: pointer;
+}
+
+
 @media only screen and (max-width: 1269px) {
     .main-container {
         width: 50%;

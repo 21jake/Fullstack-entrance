@@ -1,5 +1,6 @@
 var currentQuestion = "";
 var questionArray = "";
+var answerAgain;
 const quizData = '{"response_code":0,"results":[{"category":"Sports","type":"multiple","difficulty":"easy","question":"How many soccer players should be on the field at the same time?","correct_answer":"22","incorrect_answers":["20","24","26"]},{"category":"Sports","type":"multiple","difficulty":"easy","question":"Who is often called &quot;the Maestro&quot; in the men&#039;s tennis circuit?","correct_answer":"Roger Federer","incorrect_answers":["Bill Tilden","Boris Becker","Pete Sampras"]},{"category":"Sports","type":"multiple","difficulty":"easy","question":"The Los Angeles Dodgers were originally from what U.S. city?","correct_answer":"Brooklyn","incorrect_answers":["Las Vegas","Boston","Seattle"]},{"category":"Sports","type":"multiple","difficulty":"easy","question":"&quot;Stadium of Light&quot; is the home stadium for which soccer team?","correct_answer":"Sunderland FC","incorrect_answers":["Barcelona FC","Paris Saints-Germain","Manchester United"]},{"category":"Sports","type":"multiple","difficulty":"easy","question":"Who won the UEFA Champions League in 2017?","correct_answer":"Real Madrid C.F.","incorrect_answers":["Atletico Madrid","AS Monaco FC","Juventus F.C."]}]}';
 const jsonData = JSON.parse(quizData);
 const quizScore = document.querySelector('.quiz-score h2');
@@ -93,14 +94,28 @@ quizForm.addEventListener('submit', function (e) {
         } else {
             wrongAlert.style.display = "block"
             corectAnswer.classList.add('correct-answer-reveal');
-            wrongAlert.innerHTML = "Incorrect!"
+            wrongAlert.innerHTML = `Incorrect :( <br> <small class="answer-again">Click here to re-answer</small>`
+            answerAgain = document.querySelector('.answer-again');
         }
     } else {
         corectAnswer.classList.add('correct-answer-reveal');
         wrongAlert.style.display = "block";
-        wrongAlert.innerHTML = "You gotta pick an answer to score!"
+        wrongAlert.innerHTML = `You gotta pick an answer to score! <br> <small class="answer-again">Click here to re-answer</small>`
+        answerAgain = document.querySelector('.answer-again');
+    }
+    if (answerAgain) {
+        answerAgain.addEventListener('click', () => {
+            wrongAlert.style.display = "none";
+            submitButtons.forEach(button => {
+                button.style.display = "inline-block";
+            });
+            nextButton.style.display = "none"
+        })
     }
 })
+
+
+
 nextButton.addEventListener('click', function () {
     nextButton.style.display = "none";
     mainInteration++;
