@@ -30,6 +30,52 @@
 .text-white {
     color: white;
 }
-.next-button, .wrong-alert, .correct-alert {
+.no-display {
     display: none;
+}
+.confirm-display {
+    display: inline-block;
+}
+.correct-answer-reveal {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #1db954;
+}
+.redo-button {
+    background-color:#121212;
+    color: white;
+    border: none;
+    font-size: 40px;
+    display: none;
+}
+@media only screen and (max-width: 1269px) {
+    .main-container {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 969px) {
+    .main-container {
+        width: 60%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .main-container {
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .main-container {
+        width: 70%;
+    }
+    .quiz-header h3 {
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .main-container {
+        width: 80%;
+    }
+    .quiz-header h3 {
+        font-size: 17px;
+    }
 }
