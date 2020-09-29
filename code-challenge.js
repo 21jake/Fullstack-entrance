@@ -25,7 +25,6 @@ window.onload = () => {
     currentQuestion = questionArray[mainInteration];
     displayQuiz(currentQuestion);
 }
-
 function shuffleArray(array) {
     var shuffledArray = array
     .map((a) => ({sort: Math.random(), value: a}))
@@ -33,7 +32,6 @@ function shuffleArray(array) {
     .map((a) => a.value)
     return(shuffledArray);
 }
-
 function displayQuiz(questionArray) {
     quizOrder.innerHTML = `${mainInteration }/${jsonData.results.length}`;
     if (mainInteration == jsonData.results.length) {
@@ -75,7 +73,6 @@ function displayQuiz(questionArray) {
         }
     }
 }
-
 quizForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const corectAnswer = document.querySelector('.correct_answer');
@@ -83,8 +80,6 @@ quizForm.addEventListener('submit', function (e) {
         button.style.display = "none";
     });
     nextButton.style.display = "block"
-
-    console.log(currentQuestion);
     let userAnswer = quizForm.answer.value;
     if (userAnswer.length > 0) {
         if (userAnswer == currentQuestion.correct_answer) {
@@ -113,9 +108,6 @@ quizForm.addEventListener('submit', function (e) {
         })
     }
 })
-
-
-
 nextButton.addEventListener('click', function () {
     nextButton.style.display = "none";
     mainInteration++;
