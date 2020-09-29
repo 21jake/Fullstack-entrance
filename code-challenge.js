@@ -93,6 +93,7 @@ quizForm.addEventListener('submit', function (e) {
         } else {
             wrongAlert.style.display = "block"
             corectAnswer.classList.add('correct-answer-reveal');
+            wrongAlert.innerHTML = "Incorrect!"
         }
     } else {
         corectAnswer.classList.add('correct-answer-reveal');
