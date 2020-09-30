@@ -33,8 +33,8 @@ function shuffleArray(array) {
     return(shuffledArray);
 }
 function displayQuiz(questionArray) {
-    quizOrder.innerHTML = `${mainInteration }/${jsonData.results.length}`;
-    if (mainInteration == jsonData.results.length) {
+    quizOrder.innerHTML = `${mainInteration + 1}/${jsonData.results.length}`;
+    if (mainInteration == jsonData.results.length - 1) {
         return handleIfOutOfQuestion();
     }
     submitButtons.forEach(button => {
